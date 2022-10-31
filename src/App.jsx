@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import Monsters from "./Monsters/Monsters";
+import Monster from "./Monsters/Monster";
 
 function App() {
   const [searchUsers, setSearchUsers] = useState("");
@@ -32,7 +32,7 @@ function App() {
         <input type="text" onChange={handleFindUsers} value={searchUsers}/>
       </div>
       {filteredMonsters.map((item) => {
-        return <Monsters id={item.id} data={item} />;
+        return <Monster id={item.id} data={item} />;
       })}
     </>
   );
