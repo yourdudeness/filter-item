@@ -20,7 +20,7 @@ function App() {
       if( searchUsers === ""){
         return monsters
       }else{
-        return monsters.filter(item=> item.name.includes(searchUsers) === true)
+        return monsters.filter(item=> item.name.includes(searchUsers))
       }
     },
     [searchUsers],

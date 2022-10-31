@@ -1,10 +1,8 @@
-import React from 'react';
-
 const Monsters = ({data}) => {
     return (
-        <>
+        <div>
             {data.name}
-        </>
+        </div>
     );
 };
 
