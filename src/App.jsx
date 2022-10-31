@@ -32,7 +32,7 @@ function App() {
         <input type="text" onChange={handleFindUsers} value={searchUsers}/>
       </div>
       {filteredMonsters.map((item) => {
-        return <Monster id={item.id} data={item} />;
+        return <Monster key={item.id} data={item} />;
       })}
     </>
   );
