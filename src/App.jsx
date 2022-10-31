@@ -1,9 +1,8 @@
-import { useMemo } from "react";
-import { useCallback, useState } from "react";
-import Monsters from "./Monsters/Monsters";
+import { useMemo, useState } from "react";
+import Monster from "./Monsters/Monster";
 
 function App() {
-  let [searchUsers, setSearchUsers] = useState("");
+  const [searchUsers, setSearchUsers] = useState("");
   const monsters = [
     { id: 0, name: "Jhon" },
     { id: 1, name: "Mickel" },
@@ -16,26 +15,26 @@ function App() {
     setSearchUsers(e.target.value)
   }
 
-  let filteredMonsters = useMemo(
+  const filteredMonsters = useMemo(
     () => {
       if( searchUsers === ""){
         return monsters
       }else{
-        return [...monsters].filter(item=> item.name.indexOf(searchUsers) > -1)
+        return monsters.filter(item=> item.name.includes(searchUsers))
       }
     },
     [searchUsers],
   )
 
   return (
-    <div>
+    <>
       <div className="input-search">
-        <input type="text" onChange={(e)=>handleFindUsers(e)} value={searchUsers}/>
+        <input type="text" onChange={handleFindUsers} value={searchUsers}/>
       </div>
       {filteredMonsters.map((item) => {
-        return <Monsters id={item.id} data={item} />;
+        return <Monster key={item.id} data={item} />;
       })}
-    </div>
+    </>
   );
 }
 
